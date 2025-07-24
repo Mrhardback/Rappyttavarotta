@@ -20,5 +20,6 @@ public class pipemovement : MonoBehaviour
            
             Destroy(gameObject);
         
+       
     }
 }

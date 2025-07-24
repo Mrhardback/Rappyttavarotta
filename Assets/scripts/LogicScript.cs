@@ -15,12 +15,25 @@ public class LogicScript : MonoBehaviour
         scoreText.text = playerscore.ToString();
     }
 
+    
+
     public void restartGame() 
     {
+        AudioManager.instance.MusicStart = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
     public void gameOver() 
         {
     gameOverScreen.SetActive(true);
     }
+
+    public void OnApplicationQuit() {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+
+    }
+
 }
